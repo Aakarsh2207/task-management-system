@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+.next/
+out/
+
+# Environment files  ← most important
+.env
+.env.local
+
+# Database files
+*.db
+*.db-journal
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
