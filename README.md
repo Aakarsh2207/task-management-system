@@ -1,4 +1,4 @@
-# TaskFlow — Task Management System
+# TaskFlow - Task Management System
 
 A full-stack Task Management System built with Node.js, TypeScript, and Next.js.
 
