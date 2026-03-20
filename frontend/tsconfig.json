@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "../frontend/types/index.ts", "../frontend/hooks/useTasks.ts", "../frontend/hooks/useAuth.ts", "../frontend/components/ui/Spinner.tsx", "../frontend/components/ui/EmptyState.tsx", "../frontend/components/tasks/TaskModal.tsx", "../frontend/components/tasks/TaskFilters.tsx", "../frontend/components/tasks/Pagination.tsx", "../frontend/components/tasks/TaskCard.tsx", "../frontend/components/auth/AuthGuard.tsx", ".next/dev/types/**/*.ts"],
+  "exclude": ["node_modules"]
+}

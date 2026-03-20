@@ -1,0 +1,275 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: "DM Serif Display", serif;
+  --font-body: "Outfit", sans-serif;
+  --font-mono: "DM Mono", monospace;
+
+  --ink: #0a0a0f;
+  --ink-soft: #1a1a24;
+  --ink-muted: #2e2e3e;
+  --ink-faint: #3d3d50;
+  --chalk: #f5f4f0;
+  --chalk-soft: #eceae3;
+  --chalk-muted: #c8c5b8;
+  --accent: #e8ff47;
+  --accent-hover: #d4eb30;
+  --pending: #f59e0b;
+  --completed: #10b981;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--ink);
+  color: var(--chalk);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* ── Scrollbar ─────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--ink-soft);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--ink-muted);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ink-faint);
+}
+
+/* ── Typography ────────────────────────────────────────────── */
+.font-display {
+  font-family: var(--font-display);
+}
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* ── Auth page grid texture ────────────────────────────────── */
+.auth-bg {
+  background-color: var(--ink);
+  background-image: linear-gradient(rgba(232, 255, 71, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(232, 255, 71, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ── Glass card ─────────────────────────────────────────────── */
+.glass {
+  background: rgba(26, 26, 36, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ── Input base ─────────────────────────────────────────────── */
+.input-base {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 12px 16px;
+  color: var(--chalk);
+  font-family: var(--font-body);
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+.input-base::placeholder {
+  color: var(--ink-faint);
+}
+.input-base:focus {
+  border-color: var(--accent);
+  background: rgba(232, 255, 71, 0.04);
+}
+
+/* ── Btn accent ─────────────────────────────────────────────── */
+.btn-accent {
+  background: var(--accent);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 15px;
+  padding: 12px 24px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.btn-accent:hover {
+  background: var(--accent-hover);
+}
+.btn-accent:active {
+  transform: scale(0.98);
+}
+.btn-accent:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ── Btn ghost ──────────────────────────────────────────────── */
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--chalk-muted);
+  font-family: var(--font-body);
+  font-size: 14px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  transition: all 0.15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--chalk);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+/* ── Task card ──────────────────────────────────────────────── */
+.task-card {
+  background: var(--ink-soft);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  padding: 18px 20px;
+  transition: border-color 0.2s, transform 0.15s;
+  animation: slideUp 0.35s ease forwards;
+}
+.task-card:hover {
+  border-color: rgba(255, 255, 255, 0.12);
+  transform: translateY(-1px);
+}
+.task-card.completed {
+  opacity: 0.6;
+}
+
+/* ── Status badge ───────────────────────────────────────────── */
+.badge {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.badge-pending {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--pending);
+}
+.badge-completed {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--completed);
+}
+
+/* ── Modal overlay ──────────────────────────────────────────── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  animation: fadeIn 0.2s ease;
+}
+.modal-box {
+  background: var(--ink-soft);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  width: 100%;
+  max-width: 480px;
+  padding: 28px;
+  animation: scaleIn 0.2s ease;
+}
+
+/* ── Animations ─────────────────────────────────────────────── */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin 0.8s linear infinite;
+}
+
+/* ── Staggered task cards ───────────────────────────────────── */
+.task-card:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.task-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.task-card:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.task-card:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.task-card:nth-child(5) {
+  animation-delay: 0.25s;
+}
+.task-card:nth-child(6) {
+  animation-delay: 0.3s;
+}
+.task-card:nth-child(7) {
+  animation-delay: 0.35s;
+}
+.task-card:nth-child(8) {
+  animation-delay: 0.4s;
+}
